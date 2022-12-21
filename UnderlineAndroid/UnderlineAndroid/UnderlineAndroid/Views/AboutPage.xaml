@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UnderlineAndroid.Views.AboutPage"
+             xmlns:vm="clr-namespace:UnderlineAndroid.ViewModels"
+             Title="{Binding Title}">
+
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Button Clicked="Button_normal_Clicked" Text="Normal" BackgroundColor="Green"/>
+        <Button Grid.Column="1" Clicked="Button_underlined_Clicked" Text="Underlined" BackgroundColor="Green"/>
+        <Button Grid.Row="1"  Clicked="Button_underlined_problem1_Clicked" Text="problem1" BackgroundColor="Red"/>
+        <Button Grid.Row="1" Grid.Column="1" Clicked="Button_underlined_problem2_Clicked" Text="problem 2" BackgroundColor="red"/>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" Clicked="Button_underlined_problem_Animated_Clicked" Text="Animated"/>
+
+        <Label Grid.Row="3" Grid.ColumnSpan="2" x:Name="MyTestLabel" LineBreakMode="WordWrap" FontSize="Large" WidthRequest="200"/>
+    </Grid>
+
+
+</ContentPage>
